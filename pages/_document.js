@@ -18,11 +18,21 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <meta name="theme-color" content="#f1f1f1"/>
+            <link rel="manifest" href="/static/manifest.json" />
             {this.props.styleTags}
         </Head>
         <body className="custom_class">
           <Main />
           <NextScript />
+          <script dangerouslySetInnerHTML={{__html: `
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js');
+                });
+            }
+          `}} />
         </body>
       </html>
     )

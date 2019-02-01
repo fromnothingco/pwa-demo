@@ -1,21 +1,20 @@
-const express = require('express')
 const next = require('next')
-const port = process.env.PORT || 3000
-const env = process.env.NODE_ENV !== 'production'
-const app = next({ env })
-const handle = app.getRequestHandler()
+// const routes = require('./routes')
+const app = next({dev: process.env.NODE_ENV !== 'production'})
+const handler = app.getRequestHandler(app)
+const express = require('express')
+
+
 
 app.prepare().then(() => {
-  const server = express()
+    const server = express()
 
-  server.use('/sw.js', express.static('static/sw.js'))
-  
-  server.get('*', (req, res) => {
-    return handle(req, res)
-  })
-
-  server.listen(port, err => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  })
+    // server.get('/robots.txt', (req, res) => (
+    //     res.status(200).sendFile('robots.txt', options)
+    // ));
+    server.use((req,res,next) => {
+        global.subdomain = req.hostname.split('.')[0]
+        next()
+    })  
+    server.use(handler).listen(3000)
 })

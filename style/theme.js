@@ -1,4 +1,4 @@
-export default {
+const theme = {
     main: {
         background: '#f1f1f1',
         font: 'sans-serif',
@@ -28,6 +28,11 @@ export default {
     containers: {
         background: '#fff',
         border: '1px solid #ccc',
-        padding: '2rem'
+        padding: '1rem 2rem'
+    },
+    buttons: {
+        borderRadius: () => theme.main.borderRadius
     }
 }
+
+export default theme

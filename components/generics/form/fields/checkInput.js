@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled, {css} from 'styled-components'
-
+import Label from '../labels'
 
 const CheckboxBase = css`
 	display:flex;
@@ -35,8 +35,8 @@ class CheckboxComponent extends PureComponent {
                     onChange={this.onChange}
                     checked={checked}
 				/>
-                <label 
-					htmlFor={name}>{label}</label>
+                <Label 
+					htmlFor={name}>{label}</Label>
 			</Checkbox>
 		)
 	}

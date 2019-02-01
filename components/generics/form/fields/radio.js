@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled, {css} from 'styled-components'
-
+import Label from '../labels'
 
 const RadioBase = css`
 	display:flex;
@@ -34,8 +34,8 @@ class RadioComponent extends PureComponent {
 					required={required}
 					onChange={this.onChange}
 				/>
-                <label 
-					htmlFor={name}>{label}</label>
+                <Label 
+					htmlFor={name}>{label}</Label>
 			</Radio>
 		)
 	}

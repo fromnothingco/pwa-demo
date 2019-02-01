@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 
 export const headingBase = css`
-    all:unset;
+    font-weight: lighter;
     color: ${props => props.theme.headings.color};
 `
 

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import styled, {css} from 'styled-components'
-
+import Label from '../labels'
 
 const SelectBase = css`
 	display:flex;
@@ -28,8 +28,8 @@ class SelectComponent extends PureComponent {
 		const {name, type, label, required, checked, data} = this.props
 		return (
 			<Select>
-                <label 
-					htmlFor={name}>{label}</label>
+                <Label 
+					htmlFor={name}>{label}</Label>
                 <select name={name}>
                     {options.map(({value, label}) => <option value={value}>{label}</option>)}
                 </select>

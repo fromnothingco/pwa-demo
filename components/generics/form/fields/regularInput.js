@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react'
 import styled, {css} from 'styled-components'
-
+import Label from '../labels'
 
 const FieldBase = css`
 	display:flex;
 	flex-direction: column;
+	margin-bottom: 10px;
 	input{
 		border:1px solid #ccc;
+		border-radius: ${props => props.theme.main.borderRadius};
+		font-size:1rem;
+		padding: 0.5rem;
 	}
 `
 
@@ -31,8 +35,8 @@ class FieldComponent extends PureComponent {
 		const {name, type, label, required, pattern = '.', minlength = 3, maxlength = 999, placeholder} = this.props
 		return (
 			<Field>
-				<label 
-					htmlFor={name}>{label}</label>
+				<Label 
+					htmlFor={name}>{label}</Label>
 				<input 
 					type={type} 
 					name={name}

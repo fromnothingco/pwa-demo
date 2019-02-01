@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-
+import Btn from '../button'
 class Form extends PureComponent {
 
       constructor(props) {
@@ -34,7 +34,7 @@ class Form extends PureComponent {
                   >
                         {this.props.children}
                         <div>
-                              <input type="submit" value="Submit" /> 
+                              <Btn type="submit">{this.props.buttonText || "submit"}</Btn>
                         </div>
                   </form>
             )

@@ -6,6 +6,7 @@ export const CenterContainerBase = css`
     justify-content: center;
     align-items: center;
     height:100%;
+    flex-direction: row;
 `
 
 const CenterContainer = styled.div`

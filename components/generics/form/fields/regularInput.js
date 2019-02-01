@@ -32,7 +32,7 @@ class FieldComponent extends PureComponent {
 	}
 
 	render() {
-		const {name, type, label, required, pattern = '.', minlength = 3, maxlength = 999, placeholder} = this.props
+		const {name, type, label, required, pattern = undefined, minlength = 3, maxlength = 999, placeholder} = this.props
 		return (
 			<Field>
 				<Label 

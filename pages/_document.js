@@ -26,13 +26,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script dangerouslySetInnerHTML={{__html: `
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/sw.js');
-                });
-            }
-          `}} />
         </body>
       </html>
     )

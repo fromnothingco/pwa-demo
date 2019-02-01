@@ -1,7 +1,7 @@
 const next = require('next')
-// const routes = require('./routes')
+const routes = require('./routes')
 const app = next({dev: process.env.NODE_ENV !== 'production'})
-const handler = app.getRequestHandler(app)
+const handler = routes.getRequestHandler(app)
 const express = require('express')
 
 
@@ -16,3 +16,4 @@ app.prepare().then(() => {
     })  
     server.use(handler).listen(3000)
 })
+

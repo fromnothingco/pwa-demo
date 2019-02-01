@@ -9,9 +9,7 @@ const express = require('express')
 app.prepare().then(() => {
     const server = express()
 
-    // server.get('/robots.txt', (req, res) => (
-    //     res.status(200).sendFile('robots.txt', options)
-    // ));
+    server.use('/sw.js', express.static(__dirname + '/static/sw.js'));
     server.use((req,res,next) => {
         global.subdomain = req.hostname.split('.')[0]
         next()

@@ -1,28 +1,36 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
+const cacheName = 'v4'
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+self.addEventListener('install', (e) => {
+  console.log("service worker installed")
+}) 
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [
-  {
-    "url": "manifest.json",
-    "revision": "a3bdfcc9e4061d93d08464bbe67922cf"
-  }
-].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys()
+      .then(cacheNames => {
+        return Promise.all(
+          cacheNames.forEach(cache => {
+            if(cache !== cacheName){
+              return caches.delete(cache)
+            }
+          })
+        )
+      })
+  )
+}) 
+
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    fetch(e.request)
+      .then(res => {
+        const resClone = res.clone()
+        caches 
+          .open(cacheName)
+          .then(cache => {
+            cache.put(e.request, resClone)
+          })
+        return res
+      })
+      .catch(err => caches.match(e.request).then(res => res))
+  )
+})

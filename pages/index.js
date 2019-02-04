@@ -4,6 +4,7 @@ import {GridContainer, Header, Content, ColumnContainer} from '../components/gen
 import Form from '../components/generics/form'
 import {Field} from '../components/generics/form/fields'
 import api from '../utils/api'
+import styled from 'styled-components'
 
 const style = {
     height: '100%'
@@ -17,8 +18,15 @@ const login = ({email, password}) =>
     .then((res) => console.log(res))
     .catch((err) => console.error(err))
 
+const LoginPage = styled(GridContainer)`
+    @media(max-width:500px){
+        display:flex;
+        flex-direction: column;
+    }
+`
+
 export default () => 
-    <GridContainer grid="1fr 2fr" style={style}>
+    <LoginPage grid="1fr 2fr" style={style}>
         <ColumnContainer>
             <Header>
                 <H2>Sign in</H2>
@@ -32,4 +40,4 @@ export default () =>
             </Content>
         </ColumnContainer>
         <ColumnContainer image="/static/images/background.jpeg"/>
-    </GridContainer>
+    </LoginPage>

@@ -19,7 +19,7 @@ const login = ({email, password}) =>
     .catch((err) => console.error(err))
 
 const LoginGrid = styled(GridContainer)`
-    height: '100%'
+    height: 100%;
     @media(max-width:500px){
         display:flex;
         flex-direction: column;

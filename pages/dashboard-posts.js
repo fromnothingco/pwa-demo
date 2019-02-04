@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {H1} from '../components/generics/headings'
 import {GridContainer, Header, Content, ColumnContainer} from '../components/generics/containers'
 import api from '../utils/api'
-import {AuthContext} from '../components/providers/auth'
+import AuthProvider from '../components/providers/auth'
 import {Router, Link} from '../routes'
 import Mast from '../components/generics/mast'
 import PrimaryNav from '../components/generics/navigation/primary'
@@ -29,25 +29,20 @@ const items = [
 ]
 
 class Dash extends PureComponent {
-    static contextType = AuthContext
-
-    componentDidMount(){
-        api.get('/ping')
-        .then(() => true)
-        .catch(() => Router.push('/'))
-    }
     
     render() {
         return (
-            <GridContainer grid="1fr 3fr" style={style}>
-                <Mast>
-                    <Branding />
-                    <PrimaryNav items={items}/> 
-                </Mast>
-                <ColumnContainer>
-                    <H1>Posts</H1>
-                </ColumnContainer>
-            </GridContainer>
+            <AuthProvider>
+                <GridContainer grid="1fr 3fr" style={style}>
+                    <Mast>
+                        <Branding />
+                        <PrimaryNav items={items}/> 
+                    </Mast>
+                    <ColumnContainer>
+                        <H1>Posts</H1>
+                    </ColumnContainer>
+                </GridContainer>
+            </AuthProvider>
         )
     }
 }

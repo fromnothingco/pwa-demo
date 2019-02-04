@@ -6,7 +6,8 @@ export const ColumnContainerBase = css`
     height:100%;
     background: ${props => props.theme.containers.background};
     flex-direction: column;
-    flex:1;
+    ${props => console.log(props.size)}
+    flex: ${props => props.size || 1};
     justify-content: center;
     ${props => props.image 
         ? `
@@ -16,6 +17,15 @@ export const ColumnContainerBase = css`
             background-position: ${props.imagePos || "center center"} ;
         `
         : ` `
+    }
+    
+    @media(max-width:500px){
+        flex-direction: column;    
+        ${props => props.mobile === false 
+            ? `
+                display:none;
+            `
+            : ``}
     }
 `
 

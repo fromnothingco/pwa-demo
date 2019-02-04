@@ -45,7 +45,7 @@ class Dash extends PureComponent {
                     <PrimaryNav items={items}/> 
                 </Mast>
                 <ColumnContainer>
-                    <H1>Dashboard</H1>
+                    <H1>Posts</H1>
                 </ColumnContainer>
             </GridContainer>
         )

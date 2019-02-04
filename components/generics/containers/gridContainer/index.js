@@ -2,16 +2,20 @@ import React from 'react'
 import styled,{css} from 'styled-components'
 
 export const GridContainerBase = css`
-    display: grid;
-    grid-template-columns: ${props => props.grid || props.children.map(item => '1r').join('')}
+    display: flex;
+    height:100%;
     ${props => props.image 
         ? `
             background-image: url(${props.image});
-            background-size: 40%;
+            background-size: ${props.imageSize || 'cover'};
             background-repeat: no-repeat; 
-            background-position: center center;
+            background-position:  ${props.imagePos || 'cover'};
         `
         : ` `
+    }
+
+    @media(max-width:500px){
+        flex-direction: column;
     }
     `
 

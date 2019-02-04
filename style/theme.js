@@ -5,7 +5,7 @@ const theme = {
         borderRadius: '4px'
     },
     headings: {
-        color: '#666',
+        color: 'red',
         h1: {
             size: '3rem'
         },

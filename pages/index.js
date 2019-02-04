@@ -1,10 +1,11 @@
 import React from 'react'
-import {H2} from '../components/generics/headers'
+import {H2} from '../components/generics/headings'
 import {GridContainer, Header, Content, ColumnContainer} from '../components/generics/containers'
 import Form from '../components/generics/form'
 import {Field} from '../components/generics/form/fields'
 import api from '../utils/api'
 import styled from 'styled-components'
+import {Router} from '../routes'
 
 const style = {
     
@@ -15,19 +16,11 @@ const login = ({email, password}) =>
             email,
             password
     })
-    .then((res) => console.log(res))
+    .then((res) => Router.pushRoute('/dashboard'))
     .catch((err) => console.error(err))
 
-const LoginGrid = styled(GridContainer)`
-    height: 100%;
-    @media(max-width:500px){
-        display:flex;
-        flex-direction: column;
-    }
-`
-
 export default () => 
-    <LoginGrid grid="1fr 2fr">
+    <GridContainer>
         <ColumnContainer>
             <Header>
                 <H2>Sign in</H2>
@@ -40,5 +33,5 @@ export default () =>
                 </Form>
             </Content>
         </ColumnContainer>
-        <ColumnContainer image="/static/images/background.jpeg"/>
-    </LoginGrid>
+        <ColumnContainer size={2} image="/static/images/background.jpeg" mobile={false}/>
+    </GridContainer>

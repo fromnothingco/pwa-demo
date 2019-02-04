@@ -1,5 +1,6 @@
-const routes = module.exports = require('next-routes')()
+const routes = require('next-routes')()
 
 
-routes
+module.exports = routes
 .add('dashboard-home', '/dashboard')
+.add('dashboard-posts', '/dashboard/:slug')

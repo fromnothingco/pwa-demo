@@ -3,6 +3,8 @@ import styled, {css} from 'styled-components'
 export const headingBase = css`
     font-weight: lighter;
     color: ${props => props.theme.headings.color};
+    font-family: ${props => props.theme.headings.font};
+    margin: 0;
 `
 
 export const H1 = styled.h1`

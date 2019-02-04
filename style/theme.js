@@ -31,6 +31,7 @@ const theme = {
         padding: '1rem 2rem'
     },
     buttons: {
+        background: 'blue',
         borderRadius: () => theme.main.borderRadius
     }
 }

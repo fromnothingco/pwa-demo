@@ -7,7 +7,7 @@ import api from '../utils/api'
 import styled from 'styled-components'
 
 const style = {
-    height: '100%'
+    
 }
 
 const login = ({email, password}) => 
@@ -18,7 +18,8 @@ const login = ({email, password}) =>
     .then((res) => console.log(res))
     .catch((err) => console.error(err))
 
-const LoginPage = styled(GridContainer)`
+const LoginGrid = styled(GridContainer)`
+    height: '100%'
     @media(max-width:500px){
         display:flex;
         flex-direction: column;
@@ -26,7 +27,7 @@ const LoginPage = styled(GridContainer)`
 `
 
 export default () => 
-    <LoginPage grid="1fr 2fr" style={style}>
+    <LoginGrid grid="1fr 2fr">
         <ColumnContainer>
             <Header>
                 <H2>Sign in</H2>
@@ -40,4 +41,4 @@ export default () =>
             </Content>
         </ColumnContainer>
         <ColumnContainer image="/static/images/background.jpeg"/>
-    </LoginPage>
+    </LoginGrid>

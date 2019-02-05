@@ -9,6 +9,13 @@ const PrimaryNav = styled.nav`
     .menu-icon{
         display:none;
     }
+    ul {
+        margin:0;
+        padding:0;
+        list-style:none;
+        display:flex;
+        flex-direction:column;
+    }
     @media(max-width:500px){
         position:fixed;
         top:0;
@@ -17,16 +24,23 @@ const PrimaryNav = styled.nav`
             display:block;
         }
         ul {
+            margin:0;
+            padding:0;
             position:fixed;
-            right:-100%;
-            top:0;
+            left:0;
+            width:100%;
+            bottom:0; 
+            flex-direction:row;
+            box-shadow: -1px 0 5px rgba(0,0,0,0.3);
+        }
+        li{
+            padding:1rem 1rem;
         }
     }
 `
 
 export default ({items}) => 
     <PrimaryNav>
-        <a className="menu-icon" href="#">menu</a>
         <ul>
             {items.map(item => 
                 <li>{item.component || <a href={item.url}>{item.alias}</a>}</li>

@@ -20,11 +20,11 @@ const Branding = (props) =>
 const items = [
     {
         alias: 'Home',
-        component: <Link route="/dashboard">Dashboard</Link>
+        component: <Link route="/dashboard"><a>Dashboard</a></Link>
     },
     {
         alias: 'Posts',
-        component: <Link route="/dashboard/posts">Posts</Link>
+        component: <Link route="/dashboard/posts"><a>Posts</a></Link>
     }
 ]
 

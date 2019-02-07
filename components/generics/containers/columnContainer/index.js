@@ -4,6 +4,7 @@ import styled,{css} from 'styled-components'
 export const ColumnContainerBase = css`
     display:flex;
     height:100%;
+    width: 100%;
     background: ${props => props.theme.containers.background};
     flex-direction: column;
     ${props => console.log(props.size)}

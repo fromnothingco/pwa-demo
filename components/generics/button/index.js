@@ -11,7 +11,11 @@ const btnBase = css`
     }
     text-decoration:none;
     color: #fff;
-    display:block;
+    
+    ${props => props.type === "full"
+        ?`display:block;`
+        :`display:inline-block;`
+    }
     text-align:center;
     box-sizing: border-box;
     text-transform: uppercase;

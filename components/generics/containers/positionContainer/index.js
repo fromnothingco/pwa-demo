@@ -1,11 +1,13 @@
 import React from 'react'
 import styled,{css} from 'styled-components'
 
-export const CenterContainerBase = css`
+export const PositionContainerBase = css`
     display:flex;
-    justify-content: ${props => props.position || 'center'};
-    align-items: center;
-    flex-direction: column;
+    justify-content: ${props => props.align || 'center'};
+    align-items: ${props => props.position || 'center'};
+    flex-direction: ${props => props.column || 'column'};
+    width: 100%;
+    overflow-x: auto;
     ${props => props.image 
         ? `
             background-image: url(${props.image});
@@ -14,10 +16,11 @@ export const CenterContainerBase = css`
         `
         : ` `
     }
+    
 `
 
-const CenterContainer = styled.div`
-    ${CenterContainerBase}
+const PositionContainer = styled.div`
+    ${PositionContainerBase}
 `
 
-export default CenterContainer
+export default PositionContainer

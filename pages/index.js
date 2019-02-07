@@ -1,37 +1,169 @@
 import React from 'react'
-import {H2} from '../components/generics/headings'
-import {GridContainer, Header, Content, ColumnContainer} from '../components/generics/containers'
+import {H1, H2, H3} from '../components/generics/headings'
+import {GridContainer, Header, Content, ColumnContainer, PositionContainer} from '../components/generics/containers'
 import Form from '../components/generics/form'
 import {Field} from '../components/generics/form/fields'
 import api from '../utils/api'
 import styled from 'styled-components'
-import {Router} from '../routes'
+import {Link} from '../routes'
+import Mast from '../components/generics/mast'
+import PrimaryNav from '../components/generics/navigation/primary';
+import P from '../components/generics/paragraph'
+import Btn from '../components/generics/button'
+import Pod from '../components/generics/containers/pod';
 
-const style = {
-    
-}
+const Banner = styled(PositionContainer)`
+    height:100%;
+`
 
-const login = ({email, password}) => 
-    api.post('/login', {
-            email,
-            password
-    })
-    .then((res) => Router.pushRoute('/dashboard'))
-    .catch((err) => console.error(err))
+const SocialNavBase = styled.ul`
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:row;
+    list-style:none;
+    li{
+        margin-left: 0.5rem;
+    }
+`
+
+const PodContainer = styled(PositionContainer)`
+    padding:0;
+    @media(min-width:500px){
+        padding: 0 10%;
+    }
+`
+
+const MainFooter = styled.footer`
+    padding:2rem;
+`
+
+const SocialNav = ({items}) => 
+    <SocialNavBase>
+        {items.map(item => <li><a href={item.url}>{item.alias}</a></li>)}
+    </SocialNavBase>
+
+const socialItems = [
+    {
+        alias: 'facebook',
+        url: "/something"
+    },
+    {
+        alias: 'instagram',
+        url: "/something"
+    },
+    {
+        alias: 'twitter',
+        url: "/something"
+    }
+]
+
+const items = [
+        {
+            alias: 'Home',
+            component: <Link route="/dashboard"><a>Dashboard</a></Link>
+        },
+        {
+            alias: 'Products',
+            component: <Link route="/products"><a>Products</a></Link>
+        },
+        {
+            alias: 'Company',
+            component: <Link route="/news"><a>Company</a></Link>
+        },
+        {
+            alias: 'News',
+            component: <Link route="/news"><a>News</a></Link>
+        }
+    ]
+
 
 export default () => 
-    <GridContainer>
-        <ColumnContainer>
-            <Header>
-                <H2>Sign in</H2>
-                <p>Some text about the company blah blah blah</p>
-            </Header>
-            <Content>
-                <Form onSubmit={login}>
-                    <Field type="email" label="Email" name="email" required={true}/>
-                    <Field type="password" label="Password" name="password" required={true}/>
-                </Form>
-            </Content>
-        </ColumnContainer>
-        <ColumnContainer size={2} image="/static/images/background.jpeg" mobile={false}/>
-    </GridContainer>
+    <>
+        <Mast position="top">
+            <div>Logo</div>
+            <PrimaryNav items={items} position="top"/>
+        </Mast>
+        <Banner role="banner">
+            <div>
+                <H1>Welcome to Some Company</H1>
+                <p>Some content</p>
+            </div>
+        </Banner>
+        <GridContainer>
+            <ColumnContainer>
+                   
+            </ColumnContainer>
+            <ColumnContainer>
+                <Content>
+                    <H2>About this company</H2 >  
+                    <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </P>
+                    <Btn type="link" href="/the-company">Find out more</Btn>
+                </Content>
+            </ColumnContainer>
+        </GridContainer>
+        <PositionContainer position="center">
+            <H2>Our Solutions</H2>
+            <PodContainer position="center" column="row" align="flex-start">
+                <Pod>
+                    <Header style={{
+                        textAlign:'center'
+                    }}>
+                        <H3>Something</H3>
+                    </Header>
+                    <Content style={{
+                        textAlign:'center'
+                    }}>
+                        <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </P>
+                        <Btn type="link" href="/the-company">Find out more</Btn>
+                    </Content>
+                </Pod>
+                <Pod>
+                    <Header style={{
+                        textAlign:'center'
+                    }}>
+                        <H3>Something</H3>
+                    </Header>
+                    <Content style={{
+                        textAlign:'center'
+                    }}>
+                        <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </P>
+                        <Btn type="link" href="/the-company">Find out more</Btn>
+                    </Content>
+                </Pod>
+                <Pod>
+                    <Header style={{
+                        textAlign:'center'
+                    }}>
+                        <H3>Something</H3>
+                    </Header>
+                    <Content style={{
+                        textAlign:'center'
+                    }}>
+                        <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </P>
+                        <Btn type="link" href="/the-company">Find out more</Btn>
+                    </Content>
+                </Pod>
+            </PodContainer>
+
+        </PositionContainer>
+        <MainFooter>
+            <GridContainer>
+                <ColumnContainer>
+                    <PrimaryNav items={items} />
+                </ColumnContainer>
+                <ColumnContainer>
+                    <SocialNav items={socialItems} />
+                </ColumnContainer>
+                <ColumnContainer style={{
+                    textAlign: 'right',
+                }} size={3}>
+                    <address>
+                        123 fakestreet <br/>
+                        st james way <br/>
+                        ne1 7he<br/>
+                    </address>
+                </ColumnContainer>
+            </GridContainer>
+        </MainFooter>
+    </>

@@ -14,6 +14,6 @@ app.prepare().then(() => {
         global.subdomain = req.hostname.split('.')[0]
         next()
     })  
-    server.use(handler).listen(3000)
+    server.use(handler).listen(4000)
 })
 

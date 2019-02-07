@@ -147,6 +147,87 @@ export default () =>
             </PodContainer>
 
         </PositionContainer>
+        <GridContainer>
+            <ColumnContainer>
+                <Content>
+                    <H2>Timetable</H2>
+                    <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </P>
+                </Content>
+            </ColumnContainer>
+            <ColumnContainer>
+                    <table style={{textAlign:'left'}}>
+                        <thead>
+                            <tr>
+                                <th>days</th>
+                                <th>classes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Monday
+                                </td>
+                                <td>
+                                    4:30pm
+                                    5:30pm
+                                    6:30pm
+                                    7:30pm
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tuesday: Skills
+                                </td>
+                                <td>
+                                    7:30pm
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Wednesday
+                                </td>
+                                <td>
+                                    4:30pm
+                                    5:30pm
+                                    6:30pm
+                                    7:30pm
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Thursday
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Friday
+                                </td>
+                                <td>
+                                    4:30pm
+                                    5:30pm
+                                    6:30pm
+                                    7:30pm
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Saturday
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Sunday
+                                </td>
+                                <td>
+                                    9:00am
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </ColumnContainer>
+        </GridContainer>
         <MainFooter>
             <GridContainer>
                 <ColumnContainer>

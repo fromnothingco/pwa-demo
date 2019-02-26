@@ -20,8 +20,6 @@ class Form extends PureComponent {
                         }, {})
                   this.props.onSubmit(formData)
             } else {
-                  console.log(typeof this.props.onSubmit === 'function')
-                  console.log(form)
                   alert('NO')
             }
       }

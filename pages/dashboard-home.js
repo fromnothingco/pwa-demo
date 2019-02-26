@@ -31,7 +31,6 @@ const items = [
 class Dash extends PureComponent {
     static contextType = AuthContext
     render() {
-        console.log('hello', this.context)
         return (
             <AuthProvider>
                 <GridContainer grid="1fr 3fr" style={style}>

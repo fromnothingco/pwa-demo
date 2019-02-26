@@ -2,13 +2,14 @@ import React from 'react'
 import styled,{css} from 'styled-components'
 
 const btnBase = css`   
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
     ${props => props.transparent === undefined
     ? `background: ${props.theme.buttons.background};`
     : `border: 1px solid ${props.theme.buttons.background};
        background: transparent;
       `
     }
+    font-size:0.9rem;
     text-decoration:none;
     color: #fff;
     

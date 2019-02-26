@@ -11,7 +11,8 @@ export const PositionContainerBase = css`
     ${props => props.image 
         ? `
             background-image: url(${props.image});
-            background-size: contain;
+            background-position: ${props.imagePosition || 'left'}; 
+            background-size: ${props.imageSize || 'cover'};
             background-repeat: no-repeat; 
         `
         : ` `

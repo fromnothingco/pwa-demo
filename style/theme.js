@@ -1,11 +1,13 @@
 const theme = {
     main: {
-        background: '#fff',
+        background: '#111111',
         font: 'sans-serif',
-        borderRadius: '4px'
+        borderRadius: 0,
+        color:'#666'
     },
     headings: {
-        color: 'red',
+        font: 'times',
+        color: '#fff',
         h1: {
             size: '3rem'
         },
@@ -27,17 +29,22 @@ const theme = {
     },
     containers: {
         background: '#fff',
+        background: 'transparent',
         border: '1px solid #ccc',
-        padding: '1rem 2rem',
+        padding: '0 3rem',
         podSeperator: '2rem'
     },
     mast: {
-        background: () => theme.containers.background,
+        background: "#000",
         shadow: true
     },
     buttons: {
-        background: 'blue',
-        borderRadius: () => theme.main.borderRadius
+        background: '#866945',
+        borderRadius: 0
+    },
+    primaryNav: {
+        color: '#666',
+        hoverColor: '#fff'
     }
 }
 

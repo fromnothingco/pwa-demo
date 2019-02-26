@@ -6,6 +6,7 @@ export const mastBase = css`
     align-items: center;
     box-sizing: content-box;
     background: ${props => props.theme.mast.background};
+    z-index:9;
     ${props => props.position === "top"
         ?  `
             top:0;

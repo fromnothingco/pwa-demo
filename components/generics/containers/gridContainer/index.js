@@ -3,10 +3,12 @@ import styled,{css} from 'styled-components'
 
 export const GridContainerBase = css`
     display: flex;
-    height:100%;
     width: 100%;
+    position: relative;
+    padding: 5.5rem 0;
     ${props => props.image 
         ? `
+            
             background-image: url(${props.image});
             background-size: ${props.imageSize || 'cover'};
             background-repeat: no-repeat; 
